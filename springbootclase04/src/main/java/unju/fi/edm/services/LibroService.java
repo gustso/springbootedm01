@@ -22,9 +22,9 @@ public class LibroService {
     }
 
     public List<Libro> guardarLibro(Libro unLibro){
-        List<Libro> nuevoListado = listadoLibros.getListaDeLibros();
-        nuevoListado.add(unLibro);
-        return nuevoListado;
+        //List<Libro> nuevoListado = listadoLibros.getListaDeLibros();
+        //nuevoListado.add(unLibro);
+        return libroRepository.findByNombreContaining(unLibro.getTitulo());
     }
 
 }

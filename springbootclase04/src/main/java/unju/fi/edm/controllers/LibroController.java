@@ -4,15 +4,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.unju.fi.edm.springbootclase03.model.Autor;
-import com.unju.fi.edm.springbootclase03.model.Libro;
-import com.unju.fi.edm.springbootclase03.services.LibroService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-//import org.springframework.validation.annotation.Validated;
-//import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import unju.fi.edm.model.Autor;
+import unju.fi.edm.model.Libro;
+import unju.fi.edm.services.LibroService;
 
 @Controller
 public class LibroController {
