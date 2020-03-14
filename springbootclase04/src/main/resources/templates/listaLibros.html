@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <script th:src="@{/js/jquery-3.4.1.js}" src="../static/js/jquery-3.4.1.js"></script>
+    <script th:src="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+    <title>Listado de Libros</title>
+</head>
+<body>
+Hola mundo
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div th:each="libro: ${libros}" class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <img th:src="${libro.fotoTapa}" class="card-img-top" alt="...">
+                    <h5 th:text=${libro.isbn} class="card-title"></h5>
+                    <p th:text=${libro.titulo} class="card-text"></p>
+                    <p th:text=${libro.autor.apellido} class="card-text"></p>
+                </div>
+                <div class="card-footer text-muted">
+                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
