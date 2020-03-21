@@ -2,9 +2,22 @@ package unju.fi.edm.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Autor {
-    private int dni;
+    
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "dni", updatable = false, nullable = false)
+	private int dni;
+	@Column(name = "nombre")
     private String nombre;
+	@Column(name = "apellido")
     private String apellido;
 
 

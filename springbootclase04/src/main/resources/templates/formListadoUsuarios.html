@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <script th:src="@{/js/jquery-3.4.1.js}" src="../static/js/jquery-3.4.1.js"></script>
+    <script th:src="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+    <title>Usuario en Sistema</title>
+</head>
+<body>
+Hola mundo
+<!--<div class="container">
+    <form th:action="@{/usuarioValidado}" method="post" th:object="${usuario}">
+        <div class="form-group col-md-12">
+            <label for="user">Usuario</label>
+            <input th:field="*{user}" th:value="*{user}" type="text" class="form-control" id="user"
+                   placeholder="Nombre Usuario">
+            <!--<input th:field="*{id}" th:value="*{id}" type="number" class="form-control" id="user" placeholder="Identificador">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="contra">Contraseña</label>
+            <input th:field="*{contra}" th:value="*{contra}" type="password" class="form-control" id="contra"
+                   placeholder="Constraseña">
+            <!--<input th:field="*{descripcion}" th:value="*{descripcion}" input type="password" class="form-control" id="contra" placeholder="Descripcion">
+        </div>
+        <div class="form-group col-md-12">
+            <label>DNI</label>
+            <!--<input th:field="*{dni}" th:value="*{dni}" input type="number" class="form-control" id="id" placeholder="DNI">
+        </div>
+        <div class="form-group col-md-12">
+            <label>Titulo</label>
+            <!--<input th:field="*{titulo}" th:value="*{titulo}" input type="text" class="form-control" id="tit" placeholder="Titulo">
+        </div>
+        <div class="form-group col-md-12">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </form>
+</div>-->
+<div class="container mt-4 tnd-destacados">
+    <div class="row">
+        <div th:each="usuario: ${usuarios}" class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 th:text=${usuario.dni} class="card-title"></h5>
+                    <p th:text=${usuario.user} class="card-text"></p>
+                    <p th:text=${usuario.contra} class="card-text"></p>
+                </div>
+                <div class="card-footer text-muted">
+                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

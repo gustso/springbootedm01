@@ -9,10 +9,10 @@ import unju.fi.edm.model.Libro;
 
 public interface LibroRepository extends JpaRepository <Libro, Integer> {
 	
-	@Query("from Libro l order by l.nombre")
+	@Query("from Libro l order by l.titulo")
 	public List<Libro>buscarTodos();
 	
-	public List<Libro>findByNombreContaining(String nombre);
+	public List<Libro>findByTituloContaining(String titulo);
 	
 	
 }
