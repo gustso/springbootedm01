@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Autor {
     
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "dni", updatable = false, nullable = false)
 	private int dni;
 	@Column(name = "nombre")

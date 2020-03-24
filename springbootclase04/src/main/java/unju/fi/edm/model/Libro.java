@@ -25,7 +25,7 @@ import javax.persistence.OneToOne;
 public class Libro {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "isbn", updatable = false, nullable = false)
     //@Min(value = 100, message = "El ISBN debe ser mayor que 99") 
     //@Max(value = 1000, message = "el ISB debe ser menor a 1000")

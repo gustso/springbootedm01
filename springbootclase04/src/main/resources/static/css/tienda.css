@@ -1,0 +1,14 @@
+/*
+  Estilos personalizados de TiendaOnline
+*/
+
+
+.tnd-destacados .card{
+	height:100%;
+}
+
+/* object-fit: cover; indica que la imágen no se deforme */
+.tnd-destacados .card img{
+	height: 200px;
+	object-fit: cover;
+}

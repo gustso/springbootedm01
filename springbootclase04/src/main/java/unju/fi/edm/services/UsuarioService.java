@@ -19,7 +19,7 @@ public class UsuarioService {
 		return usuarioRepository.findAll();
 	}
 	
-	public void agregarUsuario(Usuario unUsuario) {
+	public void agregarUsuario(Usuario unUsuario) {		
 		usuarioRepository.save(unUsuario);
 	}
 	
@@ -34,4 +34,9 @@ public class UsuarioService {
 	public Usuario buscarUsuario (Integer dni) {
 		return usuarioRepository.getOne(dni);
 	}
+	
+	public List<Usuario> validarUsuario(Usuario usuario) {
+        return usuarioRepository.buscarUsuario(usuario.getUser(), usuario.getContra());
+
+    }
 }

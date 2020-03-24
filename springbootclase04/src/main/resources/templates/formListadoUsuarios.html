@@ -8,7 +8,7 @@
     <title>Usuario en Sistema</title>
 </head>
 <body>
-Hola mundo
+Hola listadoUsuarios
 <!--<div class="container">
     <form th:action="@{/usuarioValidado}" method="post" th:object="${usuario}">
         <div class="form-group col-md-12">
@@ -44,6 +44,8 @@ Hola mundo
                     <h5 th:text=${usuario.dni} class="card-title"></h5>
                     <p th:text=${usuario.user} class="card-text"></p>
                     <p th:text=${usuario.contra} class="card-text"></p>
+                    <a th:href="@{'/eliminarUsuario/' + ${usuario.dni}}" class="card-link">Eliminar</a>
+    				<a th:href="@{'/modificarUsuario/'+ ${usuario.dni}}" class="card-link">Modificar</a>
                 </div>
                 <div class="card-footer text-muted">
                     <a href="#" class="btn btn-primary">Ver Detalles</a>
