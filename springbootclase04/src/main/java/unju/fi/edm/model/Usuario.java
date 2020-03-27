@@ -1,6 +1,8 @@
 package unju.fi.edm.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Usuario {
@@ -8,9 +10,11 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "dni", updatable = false, nullable = false)
     private Integer dni;
-    @Column(name = "user", updatable = false, nullable = false)
+    @Column(name = "user")
+    @NotBlank
+    @Size(min=6, max=10, message="Escribi bien")
     private String user;
-    @Column(name = "contra", updatable = false, nullable = false)
+    @Column(name = "contra")
     private String contra;
 
 

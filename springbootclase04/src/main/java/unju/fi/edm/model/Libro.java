@@ -29,7 +29,7 @@ public class Libro {
     @Column(name = "isbn", updatable = false, nullable = false)
     //@Min(value = 100, message = "El ISBN debe ser mayor que 99") 
     //@Max(value = 1000, message = "el ISB debe ser menor a 1000")
-    //@NotNull
+    //@NotBlank @NotNull si fuera un primitivo o booleano
     private Integer isbn;
 	@Column(name = "titulo")
     private String titulo;

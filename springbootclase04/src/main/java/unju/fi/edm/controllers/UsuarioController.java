@@ -3,8 +3,10 @@ package unju.fi.edm.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.PostMapping;
@@ -71,20 +73,34 @@ public class UsuarioController {
     }
 
     @PostMapping(path = { "/nuevoUsuario" })
-    public ModelAndView agregarNuevoLibro(@Valid Usuario usuario, Model model, BindingResult result) {        
+    public ModelAndView agregarNuevoLibro(@ModelAttribute @Valid Usuario usuario, Model model, BindingResult result) {        
         ModelAndView modelAndView = new ModelAndView();
-        //if (result.hasErrors()) {
-          //  modelAndView.setViewName("nuevoUsuario");
-        //} else {
-        
+        if (result.hasErrors()) {
+        	modelAndView.addObject("usuario", usuario);
+            modelAndView.setViewName("nuevoUsuario");
+        } else {        
             usuarioService.agregarUsuario(usuario);
             List<Usuario> usuarios = usuarioService.recuperarUsuarios();
             modelAndView.addObject("usuarios", usuarios);
-            modelAndView.setViewName("formListadoUsuarios");
-            
-        //}
+            modelAndView.setViewName("formListadoUsuarios");            
+        }
         return modelAndView;
     }
+    
+    @PostMapping(path = { "/nuevoUsuarioDos" })
+    public String agregarNuevoLibroDos (@ModelAttribute @Valid Usuario usuario, ModelMap model, BindingResult result) {        
+        if (result.hasErrors()) {
+        	model.addAttribute("usuario", usuario);
+        	return "nuevoUsuario";
+        }         
+            usuarioService.agregarUsuario(usuario);
+            List<Usuario> usuarios = usuarioService.recuperarUsuarios();
+            model.addAttribute("usuarios", usuarios);
+                        
+        
+        return "formListadoUsuarios";
+    }
+    
     
     @GetMapping(path = { "/eliminarUsuario/{dni}" })
     public ModelAndView eliminarUsuario(@PathVariable (name = "dni") Integer dni) {
